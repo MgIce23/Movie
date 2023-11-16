@@ -4,14 +4,18 @@ import com.aps.movie.domain.MovieIdJsonAdapter
 import com.aps.movie.network.ApiService
 import com.aps.movie.network.AuthInterceptor
 import com.aps.movie.util.AppConstant.NETWORK_TIMEOUT
+import com.squareup.moshi.Json
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import okhttp3.MediaType
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
@@ -32,6 +36,8 @@ object AppModule {
             .connectTimeout(NETWORK_TIMEOUT, TimeUnit.MILLISECONDS)
             .readTimeout(NETWORK_TIMEOUT, TimeUnit.MILLISECONDS)
             .writeTimeout(NETWORK_TIMEOUT, TimeUnit.MILLISECONDS)
+            .addInterceptor(HttpLoggingInterceptor().apply {
+                level = HttpLoggingInterceptor.Level.BODY})
             .build()
 
     @Singleton
@@ -48,4 +54,5 @@ object AppModule {
             )
         )
         .build()
+
 }

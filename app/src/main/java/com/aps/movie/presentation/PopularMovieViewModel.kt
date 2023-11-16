@@ -1,31 +1,30 @@
 package com.aps.movie.presentation
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
+import androidx.paging.ExperimentalPagingApi
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import com.aps.movie.domain.data.Movie
-import com.aps.movie.domain.paging.PopularMoviePagingSource
-import com.aps.movie.network.ApiService
+import com.aps.movie.domain.MovieResponse
+import com.aps.movie.domain.repo.Repository
+import com.google.gson.Gson
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@OptIn(ExperimentalPagingApi::class)
 @HiltViewModel
 class PopularMovieViewModel @Inject constructor(
-    private val apiService: ApiService
+    private val repository: Repository
 ): ViewModel() {
 
-    fun loadPopularViewModel(): Flow<PagingData<Movie>> {
-        val moviePagingSource =
-            PopularMoviePagingSource(apiService)
-        return Pager(
-            PagingConfig(pageSize = 20)
-        ) {
-            moviePagingSource
-        }.flow.cachedIn(viewModelScope)
 
-    }
+    private val _loadPopularMovie = MutableStateFlow<PagingData<MovieResponse>>(PagingData.empty())
+    val loadPopularMovie = _loadPopularMovie
+    fun loadPopularMovie() = repository.getPopularMovie().cachedIn(viewModelScope)
+
+
+
 }
