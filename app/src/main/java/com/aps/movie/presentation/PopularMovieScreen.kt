@@ -35,6 +35,7 @@ import com.aps.movie.domain.MovieResponse
 import com.aps.movie.domain.data.Movie
 import com.aps.movie.presentation.components.ErrorMessageItem
 import com.aps.movie.presentation.components.LoadingIndicator
+import com.aps.movie.presentation.components.MovieItem
 import kotlinx.coroutines.flow.distinctUntilChanged
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -63,7 +64,7 @@ fun PopularMovieScreen(viewModel: PopularMovieViewModel = hiltViewModel<PopularM
 
                 items(moviePagingItems.itemCount) { index ->
                     val item = moviePagingItems[index]!!
-                    Text(text = item.title)
+                    MovieItem(movie = item)
                 }
 
                 moviePagingItems.apply {
