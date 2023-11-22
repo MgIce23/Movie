@@ -1,7 +1,6 @@
 package com.aps.movie.domain
 
-import android.os.Build
-import com.aps.movie.domain.data.MovieId
+import com.aps.movie.data.modal.movie.MovieId
 import com.squareup.moshi.FromJson
 import com.squareup.moshi.ToJson
 import java.time.LocalDate

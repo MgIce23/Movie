@@ -62,6 +62,7 @@ dependencies {
     val retrofitVersion = "2.9.0"
     val moshiAdapterVersion = "1.14.0"
     val hiltVersion = "2.48"
+    val room_version = "2.6.0"
 
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
    // implementation (project(":shared"))
@@ -91,6 +92,15 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
     implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
     implementation("androidx.navigation:navigation-compose:2.7.5")
+
+    // room
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+    // optional - Paging 3 Integration
+    implementation("androidx.room:room-paging:$room_version")
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation("androidx.room:room-ktx:$room_version")
+    ksp("androidx.room:room-compiler:$room_version")
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")

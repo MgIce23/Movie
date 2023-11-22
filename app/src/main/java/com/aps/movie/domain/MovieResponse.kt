@@ -1,8 +1,7 @@
 package com.aps.movie.domain
 
 
-import com.aps.movie.domain.data.Movie
-import com.aps.movie.domain.data.MovieId
+import com.aps.movie.data.modal.movie.Movie
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
