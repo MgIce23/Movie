@@ -32,7 +32,7 @@ class PopularMovieViewModel @Inject constructor(
 
 
     @OptIn(ExperimentalCoroutinesApi::class)
-    private val uiState : StateFlow<MovieScreenUiState> = movieState.mapLatest { movieState ->
+    val uiState : StateFlow<MovieScreenUiState> = movieState.mapLatest { movieState ->
         MovieScreenUiState(
             movieState = movieState
         )

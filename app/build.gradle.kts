@@ -70,7 +70,7 @@ dependencies {
     //implementation(project.dependencies.coil)
 
     implementation ("io.coil-kt:coil-compose:$coilVersion")
-    implementation ("androidx.paging:paging-compose:$pagingVersion")
+   // implementation ("androidx.paging:paging-compose:$pagingVersion")
     implementation (platform("com.squareup.okhttp3:okhttp-bom:$okHttpBomVersion"))
     implementation ("com.squareup.okhttp3:okhttp:$okHttpBomVersion")
     implementation ("com.squareup.okhttp3:logging-interceptor:$okHttpBomVersion")
@@ -92,6 +92,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
     implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
     implementation("androidx.navigation:navigation-compose:2.7.5")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.2")
 
     // room
     implementation("androidx.room:room-runtime:$room_version")
@@ -101,6 +102,13 @@ dependencies {
     // optional - Kotlin Extensions and Coroutines support for Room
     implementation("androidx.room:room-ktx:$room_version")
     ksp("androidx.room:room-compiler:$room_version")
+
+    implementation("com.google.accompanist:accompanist-placeholder-material3:0.33.2-alpha")
+    implementation("io.coil-kt:coil-compose:2.5.0")
+    implementation("androidx.paging:paging-common:3.2.0-alpha02")
+    implementation("androidx.paging:paging-compose:1.0.0-alpha16")
+    implementation("com.google.accompanist:accompanist-swiperefresh:0.33.2-alpha")
+
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")

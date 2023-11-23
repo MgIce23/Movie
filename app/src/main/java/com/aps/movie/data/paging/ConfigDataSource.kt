@@ -1,6 +1,7 @@
 package com.aps.movie.data.paging
 
 import android.content.Context
+import android.util.Log
 import com.aps.movie.data.modal.Config
 import com.aps.movie.data.network.movie.MovieApiHelper
 import com.aps.movie.data.network.onException
@@ -33,7 +34,7 @@ class ConfigDataSource @Inject constructor(
                     _config.emit(config)
                 }
             }.onException {
-
+                Log.d("exception", exception.message.toString())
             }
         }
     }

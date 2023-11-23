@@ -6,7 +6,7 @@ import androidx.compose.runtime.Stable
 interface Presentable {
     val id: Int
     val title: String
-    val posterPath : String
+    val posterPath : String?
 }
 
 @Stable

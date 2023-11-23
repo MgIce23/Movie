@@ -39,7 +39,7 @@ object NetWorkModule {
             val request = chain.request()
             val requestUrl = request.url
             val url = requestUrl.newBuilder()
-                .addQueryParameter("api_key","")
+                .addQueryParameter("api_key","59cd6896d8432f9c69aed9b86b9c2931")
                 .build()
 
             val modifierResult = request.newBuilder()
@@ -117,11 +117,5 @@ object NetWorkModule {
             .alwaysReadResponseBody(true)
             .build()
     }*/
-
-}
-
-@Module
-@InstallIn(SingletonComponent::class)
-object NetworkModule {
 
 }

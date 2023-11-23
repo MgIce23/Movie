@@ -8,12 +8,15 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.aps.movie.ui.screen.movie.PopularMovieScreen
 import com.aps.movie.ui.theme.MovieTheme
+import com.aps.movie.util.ImageUrlParser
 import dagger.hilt.android.AndroidEntryPoint
 
+val LocalImageUrlParser = staticCompositionLocalOf<ImageUrlParser?> { null }
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +26,7 @@ class MainActivity : ComponentActivity() {
             MovieTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-PopularMovieScreen()
+                PopularMovieScreen()
                 }
             }
         }
